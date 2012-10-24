@@ -4,7 +4,9 @@ This project has been forked from the original work by Raymond Camden, and start
 
 PhoneGap has since been donated to the apache software foundation, and renamed Apache Cordova.
 
-This project is a reorganisation of Raymonds work into a modern maven build, with necessary updates to the code, configs as necessary to get it going again.
+This project is a reorganisation of Raymonds work into a modern maven build, with updates to the code, configs as necessary to get it going again.
+
+You can find a packaged version in the android/google play market here: https://play.google.com/store/apps/details?id=au.com.redata.android.demo
 
 ---------------
 
@@ -28,6 +30,9 @@ $> mvn install:install-file -DgroupId=org.apache.cordova\
 presuming you have an android 2.2+ device attached, or an emulator either run or defined as the default target, run the build thusly:
 
 $> mvn clean install
+
+the android-maven-plugin can control a lot of operations on either a connected device or a running emulator, details on its operation can be found here: http://code.google.com/p/maven-android-plugin/
+
 
 ---------------------------
 

@@ -457,9 +457,17 @@ $("#remotedatapage").live("pagecreate", function(event) {
 	var page = this;
 		
 	$("#getDataLink").live("click",function(e) {
-		$.post("http://www.coldfusionjedi.com/demos/phonegap/remote.cfc?method=getrandom&returnformat=plain", {}, function(res,code) {
-			$("#status", page).html("Result from remote server was " + res);
-		});
+    $.getJSON("http://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?",
+        {
+          tags: "mount hotham",
+          tagmode: "any",
+          format: "json"
+        }, function(data) {
+                $.each(data.items, function(i,item){
+                        $("<img/>").attr("src", item.media.m).appendTo("#images");
+                              if ( i == 3 ) return false;
+                                  });
+                  });
 	});
 
 	
