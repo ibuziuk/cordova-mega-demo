@@ -19,8 +19,8 @@
     
     <scm>
           <url>https://github.com/jasond/cordova-mega-demo</url>
-              <connection>scm:git:git://github.com/jasond/cordova-mega-demo.git</connection>
-                  <developerConnection>scm:git:git@github.com:jasond/cordova-mega-demo.git</developerConnection>
+          <connection>scm:git:git://github.com/jasond/cordova-mega-demo.git</connection>
+          <developerConnection>scm:git:git@github.com:jasond/cordova-mega-demo.git</developerConnection>
   	</scm>
     
 	<distributionManagement>
