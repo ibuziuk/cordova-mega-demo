@@ -14,10 +14,25 @@
     </modules>
 
     <properties>
-        <platform.version> 2.3.3
-            </platform.version>
+        <platform.version>2.3.3</platform.version>
     </properties>
-
+    
+    <scm>
+    	<connection>scm:git:git://github.com/jasond/${project.artifactId}.git</connection>
+    	<developerConnection>scm:git:git@github.com:jasond/${project.artifactId}.git</developerConnection>
+  	</scm>
+    
+	<distributionManagement>
+        <site>
+            <id>local-site</id>
+            <url>file://${java.io.tmpdir}/${project.artifactId}/site</url>
+        </site>
+        <repository>
+            <id>local-repo</id>
+            <name>local-releases</name>
+            <url>file://${java.io.tmpdir}/${project.artifactId}/repository</url>
+        </repository>
+    </distributionManagement>
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -67,7 +82,69 @@
                     <artifactId>maven-compiler-plugin</artifactId>
                     <version>2.3.2</version>
                 </plugin>
+                <!--  Release plugin -->
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-release-plugin</artifactId>
+					<version>2.3.2</version>
+					<configuration>
+						<preparationGoals>clean install</preparationGoals>
+            <!-- cordova-mega-demo profile should be in your settings.xml which defines the signing setup properties -->
+            <releaseProfiles>sign,cordova-mega-demo</releaseProfiles>
+						<autoVersionSubmodues>true</autoVersionSubmodues>
+					</configuration>
+				</plugin>
             </plugins>
         </pluginManagement>
     </build>
+      <profiles>
+        <profile>
+            <id>sign</id>
+            <build>
+                <plugins>
+                    <plugin>
+                        <groupId>org.apache.maven.plugins</groupId>
+                        <artifactId>maven-jarsigner-plugin</artifactId>
+                        <version>1.2</version>
+                        <executions>
+                            <execution>
+                                <id>signing</id>
+                                <goals>
+                                    <goal>sign</goal>
+                                </goals>
+                                <phase>package</phase>
+                                <inherited>true</inherited>
+                                <configuration>
+                                    <archiveDirectory></archiveDirectory>
+                                    <includes>
+                                        <include>target/*.apk</include>
+                                    </includes>
+                                    <!--  once you have created a release keystore, -->
+                                    <!--  you'll need to set these properties up in your ~/.m2/settings.xml -->
+                                    <keystore>${cordova-mega-demo-keystore.path}</keystore>
+                                    <storepass>${cordova-mega-demo-keystore.storepass}</storepass>
+                                    <keypass>${cordova-mega-demo-keystore.keypass}</keypass>
+                                    <alias>${cordova-mega-demo-keystore.alias}</alias>
+                                    <arguments>
+                                      <argument>-sigalg</argument><argument>MD5withRSA</argument>
+                                      <argument>-digestalg</argument><argument>SHA1</argument>
+                                    </arguments>
+                                </configuration>
+                            </execution>
+                        </executions>
+                    </plugin>
+                    <plugin>
+                        <groupId>com.jayway.maven.plugins.android.generation2</groupId>
+                        <artifactId>android-maven-plugin</artifactId>
+                        <inherited>true</inherited>
+                        <configuration>
+                            <sign>
+                                <debug>false</debug>
+                            </sign>
+                        </configuration>
+                    </plugin>
+                </plugins>
+            </build>
+        </profile>
+    </profiles>
 </project>
