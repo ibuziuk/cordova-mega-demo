@@ -5,12 +5,12 @@
   <parent>
     <groupId>au.com.redata.android.demo</groupId>
     <artifactId>cordova-mega-demo-parent</artifactId>
-    <version>0.0.2</version>
+    <version>0.0.3-SNAPSHOT</version>
   </parent>
 
   <groupId>au.com.redata.android.demo</groupId>
   <artifactId>cordova-mega-demo</artifactId>
-  <version>0.0.2</version>
+  <version>0.0.3-SNAPSHOT</version>
   <packaging>apk</packaging>
   <name>cordova-mega-demo - Application</name>
 
