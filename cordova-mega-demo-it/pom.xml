@@ -5,12 +5,12 @@
     <parent>
         <groupId>au.com.redata.android.demo</groupId>
         <artifactId>cordova-mega-demo-parent</artifactId>
-        <version>0.0.2-SNAPSHOT</version>
+        <version>0.0.2</version>
     </parent>
 
     <groupId>au.com.redata.android.demo</groupId>
     <artifactId>cordova-mega-demo-it-it</artifactId>
-    <version>0.0.2-SNAPSHOT</version>
+    <version>0.0.2</version>
     <packaging>apk</packaging>
     <name>cordova-mega-demo-it - Integration tests</name>
 
@@ -27,13 +27,13 @@
             <groupId>au.com.redata.android.demo</groupId>
             <artifactId>cordova-mega-demo</artifactId>
             <type>apk</type>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>au.com.redata.android.demo</groupId>
             <artifactId>cordova-mega-demo</artifactId>
             <type>jar</type>
-            <version>0.0.2-SNAPSHOT</version>
+            <version>0.0.2</version>
         </dependency>
         <dependency>
             <groupId>junit</groupId>
