@@ -283,12 +283,12 @@ $("#camerapage").live("pagecreate", function(event) {
 	};
 	
 	$("#newPicLink").live("click",function(e) {
-		navigator.camera.getPicture(onCamSuccess,onCamError, {sourceType:Camera.PictureSourceType.CAMERA, quality:50, targetWidth: 200, targetHeight:200});
+		navigator.camera.getPicture(onCamSuccess,onCamError, {sourceType:Camera.PictureSourceType.CAMERA, destinationType:Camera.DestinationType.DATA_URL, quality:50, targetWidth: 200, targetHeight:200});
 		e.preventDefault();
 	});
 
 	$("#existingPicLink").live("click",function(e) {
-		navigator.camera.getPicture(onCamSuccess,onCamError, {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, quality:50, targetWidth: 200, targetHeight: 200});
+		navigator.camera.getPicture(onCamSuccess,onCamError, {sourceType:Camera.PictureSourceType.PHOTOLIBRARY, destinationType:Camera.DestinationType.DATA_URL, quality:50, targetWidth: 200, targetHeight: 200});
 		e.preventDefault();
 	});
 	
