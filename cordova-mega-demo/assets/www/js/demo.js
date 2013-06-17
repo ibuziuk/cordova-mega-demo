@@ -362,7 +362,7 @@ $("#capturepage").live("pagecreate", function(event) {
 	});
 
 	$("#captureVideoLink").live("click",function(e) {
-		navigator.device.capture.captureImage(onCaptureSuccess,onCaptureError, {});
+		navigator.device.capture.captureVideo(onCaptureSuccess,onCaptureError, {});
 		e.preventDefault();
 	});
 	
