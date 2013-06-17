@@ -123,7 +123,10 @@ $("#compasspage").live("pagecreate", function(event) {
 	var watchCompassID = null;
 	
 	onCurrentCompassSuccess = function(heading) {
-		var s = 'Heading: ' + heading + '<br/>';
+		var s = 'Magnetic Heading: ' + heading.magneticHeading
+			+ '<br/> True Heading:  ' + heading.trueHeading
+			+ '<br/> Heading Accuracy: ' + heading.headingAccuracy
+			+ '<br/> Heading Timestamp: ' + heading.timestamp;
 		$("#status",page).html(s);
 	};
 	
