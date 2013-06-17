@@ -1,3 +1,10 @@
+function getPhoneGapPath() {
+    'use strict';
+    var path = window.location.pathname;
+    var phoneGapPath = path.substring(0, path.lastIndexOf('/') + 1);
+    return phoneGapPath;
+};
+
 $("#notificationpage").live("pagecreate", function(event) {
 
 	alertDismissed = function(){
@@ -369,7 +376,7 @@ $("#mediapage").live("pagecreate", function(event) {
 		alert('Media Error: '+error.message);
 	}
 	
-	var myMedia = new Media('/android_asset/www/media/midnight-ride.mp3', mediaSuccess, mediaError);
+	var myMedia = new Media(getPhoneGapPath() + 'media/midnight-ride.mp3', mediaSuccess, mediaError);
 
 	$("#mediaplayLink").live("click",function(e) {
 		myMedia.play();
